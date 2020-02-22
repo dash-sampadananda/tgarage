@@ -17,28 +17,10 @@
         </select>
     </div>
 </div>
-<!--	<div class="form-group">
-                <label for="cancled" class="col-md-4 control-label">Cancled</label>
-                <div class="col-md-8">
-                        <input type="text" name="cancled" value="<?php echo $this->input->post('cancled'); ?>" class="form-control" id="cancled" />
-                </div>
-        </div>-->
-<!--	<div class="form-group">
-                <label for="userid" class="col-md-4 control-label">Userid</label>
-                <div class="col-md-8">
-                        <input type="text" name="userid" value="<?php echo $this->input->post('userid'); ?>" class="form-control" id="userid" />
-                </div>
-        </div>-->
-<!--	<div class="form-group">
-                <label for="createddate" class="col-md-4 control-label">Createddate</label>
-                <div class="col-md-8">
-                        <input type="text" name="createddate" value="<?php echo $this->input->post('createddate'); ?>" class="form-control" id="createddate" />
-                </div>
-        </div>-->
 <div class="form-group">
     <label for="delivereddate" class="col-md-4 control-label">Delivereddate</label>
     <div class="col-md-8">
-        <input type="text" name="delivereddate" value="<?php echo $this->input->post('delivereddate'); ?>" class="form-control" id="delivereddate" />
+        <input type="date" name="delivereddate" value="<?php echo $this->input->post('delivereddate'); ?>" class="form-control" id="delivereddate" />
     </div>
 </div>
 <div class="form-group">
@@ -49,8 +31,11 @@
 </div>
 <div class="form-group">
     <label for="customerid" class="col-md-4 control-label">Customerid</label>
-    <div class="col-md-8">
-        <input type="text" name="customerid" class="form-control custAutoComplete" type="text" autocomplete="off" id="customerid" data-url="<?php echo $custAutocompleteUrl; ?>" />
+    <div class="col-md-6">
+        <input name="customerid" class="form-control custAutoComplete" type="text" autocomplete="off" id="customerid" data-url="<?php echo $custAutocompleteUrl; ?>" />
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-success" id="addcustomer" data-toggle="modal" data-target="#addCustomerModal">Add</button>
     </div>
 </div>
 <div class="form-group">
@@ -61,10 +46,13 @@
 </div>
 <div class="form-group">
     <label for="vehicleid" class="col-md-4 control-label">Vehicleid</label>
-    <div class="col-md-8">
+    <div class="col-md-6">
         <select name="vehicleid" class="form-control" id="vehicleid">
             <option value="" >Select a Vehicle</option>
         </select>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-success" id="addvehicle" data-toggle="modal" data-target="#addVehicleModal">Add</button>
     </div>
 </div>
 

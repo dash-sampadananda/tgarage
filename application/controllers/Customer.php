@@ -102,4 +102,20 @@ class Customer extends CI_Controller{
         }
     }
     
+    /*
+     * Adding a new customer
+     */
+    function addAjax()
+    {   
+        if(isset($_POST) && count($_POST) > 0)     
+        {   
+            $params = array(
+                'name' => $this->input->post('name'),
+                'phone' => $this->input->post('phone'),
+            );
+            
+            $customer_id = $this->Customer_model->add_customer($params);
+            echo json_encode(['success' => true]);
+        }
+    }  
 }
