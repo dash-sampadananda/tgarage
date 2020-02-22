@@ -95,4 +95,10 @@ class Vehicle extends CI_Controller{
             show_error('The vehicle you are trying to delete does not exist.');
     }
     
+    function get_vehicles_by_customer($customer_id = null) {
+        $vehicles = $this->Vehicle_model->get_vehicles_by_customer($customer_id);
+        header('Content-Type: application/json');
+        echo json_encode($vehicles);
+    }
+    
 }
