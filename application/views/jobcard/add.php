@@ -32,7 +32,9 @@
 <div class="form-group">
     <label for="customerid" class="col-md-4 control-label">Customerid</label>
     <div class="col-md-6">
-        <input name="customerid" class="form-control custAutoComplete" type="text" autocomplete="off" id="customerid" data-url="<?php echo $custAutocompleteUrl; ?>" />
+        <!--<input name="customerid" class="form-control custAutoComplete" type="text" autocomplete="off" id="customerid" data-url="<?php echo $custAutocompleteUrl; ?>" />-->
+        <select class="form-control custAutoComplete" name="customerid"
+            placeholder="type to search..." autocomplete="off" id="customerid" data-url="<?php echo $custAutocompleteUrl; ?>" ></select>
     </div>
     <div class="col-md-2">
         <button class="btn btn-success" id="addcustomer" data-toggle="modal" data-target="#addCustomerModal">Add</button>

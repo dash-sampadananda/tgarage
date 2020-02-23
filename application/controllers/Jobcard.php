@@ -12,6 +12,7 @@ class Jobcard extends CI_Controller{
         $this->load->model('Vehicle_model');
         $this->load->model('Insurance_model');
         $this->load->model('Jcline_model');
+        $this->load->model('Customer_model');
     } 
 
     /*
@@ -66,6 +67,8 @@ class Jobcard extends CI_Controller{
     {   
         // check if the jobcard exists before trying to edit it
         $data['jobcard'] = $this->Jobcard_model->get_jobcard($id);
+        $data['customer'] = $this->Customer_model->get_customer($data['jobcard']['customerid']);
+        $data['vehicle'] = $this->Vehicle_model->get_vehicle($data['jobcard']['vehicleid']);
         
         if(isset($data['jobcard']['id']))
         {
@@ -90,6 +93,7 @@ class Jobcard extends CI_Controller{
             else
             {
                 $data["jobLineItems"] = $this->Jcline_model->get_joblines_by_job_card($data['jobcard']['id']);
+                $data["custAutocompleteUrl"] = site_url('/customer/get_customers_by_name_or_phone');
                 $data['_view'] = 'jobcard/edit';
                 $this->load->view('layouts/main',$data);
             }

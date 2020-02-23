@@ -45,7 +45,11 @@
 <div class="form-group">
     <label for="customerid" class="col-md-4 control-label">Customerid</label>
     <div class="col-md-8">
-        <input type="text" name="customerid" value="<?php echo ($this->input->post('customerid') ? $this->input->post('customerid') : $jobcard['customerid']); ?>" class="form-control" id="customerid" />
+        <!--<input type="text" name="customerid" value="<?php echo ($this->input->post('customerid') ? $this->input->post('customerid') : $jobcard['customerid']); ?>" class="form-control" id="customerid" />-->
+        <select class="form-control" name="customerid"
+            placeholder="type to search..." autocomplete="off" id="customerid" disabled >
+            <option value="<?php echo $customer["id"]; ?>" selected><?php echo $customer["name"]; ?></option>
+        </select>
     </div>
 </div>
 <div class="form-group">
@@ -57,7 +61,9 @@
 <div class="form-group">
     <label for="vehicleid" class="col-md-4 control-label">Vehicleid</label>
     <div class="col-md-8">
-        <input type="text" name="vehicleid" value="<?php echo ($this->input->post('vehicleid') ? $this->input->post('vehicleid') : $jobcard['vehicleid']); ?>" class="form-control" id="vehicleid" />
+        <select name="vehicleid" class="form-control" id="vehicleid" disabled>
+            <option selected value="<?php echo $vehicle['id'] ?>" ><?php echo $vehicle['make']." | ".$vehicle['model']." | ".$vehicle['number']; ?></option>
+        </select>
     </div>
 </div>
 
