@@ -101,4 +101,25 @@ class Vehicle extends CI_Controller{
         echo json_encode($vehicles);
     }
     
+    /*
+     * Adding a new customer
+     */
+    function addAjax()
+    {   
+        if(isset($_POST) && count($_POST) > 0)     
+        {   
+            $params = array(
+				'customerid' => $this->input->post('customerid'),
+				'make' => $this->input->post('make'),
+				'model' => $this->input->post('model'),
+				'number' => $this->input->post('number'),
+            );
+            
+            $vehicle_id = $this->Vehicle_model->add_vehicle($params);
+            $vehicles = $this->Vehicle_model->get_vehicles_by_customer($params["customerid"]);
+            header('Content-Type: application/json');
+            echo json_encode($vehicles);
+        }
+    }  
+    
 }

@@ -53,4 +53,23 @@ class Jcline_model extends CI_Model
     {
         return $this->db->delete('jcline',array('id'=>$id));
     }
+    
+    /*
+     * function to delete jcline
+     */
+    function get_joblines_by_job_card($jcid)
+    {
+        if($jcid)
+            $query = $this->db->select("*")
+                ->from('jcline')->where("jobcardid", $jcid);
+        else
+            return "[]";
+        
+        return $query->get()->result_array();
+    }
+    
+    function delete_all_jcline_by_jcid($jcid) {
+        $this->db->where('jobcardid', $jcid);
+        $this->db->delete('jcline');
+    }
 }

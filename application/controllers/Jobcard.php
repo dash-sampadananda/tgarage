@@ -11,6 +11,7 @@ class Jobcard extends CI_Controller{
         $this->load->model('Jobcard_model');
         $this->load->model('Vehicle_model');
         $this->load->model('Insurance_model');
+        $this->load->model('Jcline_model');
     } 
 
     /*
@@ -45,7 +46,7 @@ class Jobcard extends CI_Controller{
             );
             
             $jobcard_id = $this->Jobcard_model->add_jobcard($params);
-            redirect('jobcard/edit');
+            redirect('jobcard/edit/'.$jobcard_id);
         }
         else
         {       
@@ -88,6 +89,7 @@ class Jobcard extends CI_Controller{
             }
             else
             {
+                $data["jobLineItems"] = $this->Jcline_model->get_joblines_by_job_card($data['jobcard']['id']);
                 $data['_view'] = 'jobcard/edit';
                 $this->load->view('layouts/main',$data);
             }
